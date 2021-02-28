@@ -1,4 +1,10 @@
 import java.util.Scanner;
+
+/**
+ * Esta clase se usa para  generar todos los números primos de 1 hasta un número máximo especificado por el usuario
+ * @author Carlos Ruedas
+ *
+ */
 public class Criba
 {
 	
@@ -31,7 +37,11 @@ public class Criba
 	
 	}
 	
-	
+	/**
+	 * Metodo para generar los primos
+	 * @param max. Este parámetro permite especificar el valor máximo
+	 * @return
+	 */
 	private static int[] generaPrimos(int max) {
 		if (max >= 2) {
 			// Declaraciones
@@ -53,6 +63,14 @@ public class Criba
 			// Vector vacío
 		}
 	}
+	
+	/**
+	 * 
+	 * @param dim
+	 * @param esPrimo
+	 * @param cuenta
+	 * @return Devuelve el vector relleno
+	 */
 	private static int[] rellenarVector(int dim, boolean[] esPrimo, int cuenta) {
 		int i;
 		int j;
@@ -64,6 +82,12 @@ public class Criba
 		return primos;
 	}
 	
+	/**
+	 * 
+	 * @param dim
+	 * @param esPrimo
+	 * @return cuantos primos hay
+	 */
 	private static int cuantosPrimos(int dim, boolean[] esPrimo) {
 		int i;
 		int cuenta = 0;
@@ -74,12 +98,22 @@ public class Criba
 		return cuenta;
 	}
 	
+	/**
+	 * Inicia el array
+	 * @param dim
+	 * @param esPrimo
+	 */
 	private static void iniciarArray(int dim, boolean[] esPrimo) {
 		int i;
 		for (i=0; i<dim; i++)
 			esPrimo[i] = true;
 	}
 	
+	/**
+	 * 
+	 * @param dim
+	 * @param esPrimo
+	 */
 	private static void cribar(int dim, boolean[] esPrimo) {
 		int i;
 		int j;
@@ -91,13 +125,23 @@ public class Criba
 		}
 	}
 	
+	/**
+	 * Elimina los multiplos de 1
+	 * @param i
+	 * @param dim
+	 * @param esPrimo
+	 * @return
+	 */
 	private static int eliminarMulti1(int i, int dim, boolean[] esPrimo) {
 		int j;
 		for (j=2*i; j<dim; j+=i)
 			esPrimo[j] = false;
 		return j;
 	}
-	
+	/**
+	 * Elimina el 1 y el 0
+	 * @param esPrimo
+	 */
 	private static void eliminar1Y0(boolean[] esPrimo) {
 		esPrimo[0] = esPrimo[1] = false;
 	}
